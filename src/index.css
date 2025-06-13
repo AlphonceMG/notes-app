@@ -9,36 +9,46 @@ html {
 }
 
 body {
-  background: #eee;
-  padding: 0 16px;
+  background: linear-gradient(135deg, #f5ba13 0%, #fffbe7 100%);
   min-height: 100vh;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 80px 16px;
 }
 
 header {
-  background-color: #f5ba13;
-  margin: auto -16px;
-  padding: 24px 32px 20px 32px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  background: #f5ba13;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 0 24px 0;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
 }
 
 header h1 {
   color: #fff;
-  font-family: "McLaren", cursive;
-  font-weight: 200;
-  font-size: 2.5rem;
+  font-family: 'McLaren', cursive;
+  font-size: 2.8rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  margin: 0;
 }
 
 .create-area {
   background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 20px 20px 16px 20px;
-  width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 24px 24px 16px 24px;
   margin: 32px auto 24px auto;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  gap: 12px;
+  transition: box-shadow 0.2s;
 }
 
 .create-area input,
@@ -46,93 +56,143 @@ header h1 {
   width: 100%;
   border: none;
   outline: none;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+  padding: 14px 12px;
+  border-radius: 8px;
   background: #f7f7f7;
-  font-size: 1rem;
-  resize: none;
+  font-size: 1.1rem;
   box-shadow: 0 1px 2px #eee;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.create-area input:focus,
+.create-area textarea:focus {
+  background: #fffbe7;
+  box-shadow: 0 2px 8px #ffe082;
 }
 
 .create-area button {
-  background: #f5ba13;
+  align-self: flex-end;
+  background: linear-gradient(90deg, #f5ba13 60%, #ffe082 100%);
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 8px 18px;
-  font-size: 1rem;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px #ffe082;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 
 .create-area button:hover {
-  background: #e1a500;
+  background: linear-gradient(90deg, #ffe082 0%, #f5ba13 100%);
+  box-shadow: 0 4px 16px #ffe082;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .note {
   background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 16px 18px 10px 18px;
-  width: 240px;
-  margin: 16px;
-  float: left;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 20px 22px 16px 22px;
   position: relative;
+  transition: box-shadow 0.2s, transform 0.1s;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note:hover {
+  box-shadow: 0 8px 32px rgba(245,186,19,0.15);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .note h1 {
-  font-size: 1.2em;
-  margin-bottom: 6px;
+  font-size: 1.25em;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  color: #f5ba13;
 }
 
 .note p {
-  font-size: 1.1em;
-  margin-bottom: 10px;
+  font-size: 1.08em;
+  margin: 0 0 10px 0;
+  color: #333;
+  flex: 1;
   white-space: pre-wrap;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .note button {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 16px;
+  bottom: 12px;
   background: #f5ba13;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 4px 12px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 0.98rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 1px 4px #ffe082;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 
 .note button:hover {
-  background: #e1a500;
+  background: #ffe082;
+  color: #f5ba13;
+  box-shadow: 0 2px 8px #f5ba13;
+  transform: scale(1.05);
 }
 
 footer {
-  position: absolute;
-  text-align: center;
+  position: fixed;
+  left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   height: 2.5rem;
+  background: transparent;
+  text-align: center;
+  z-index: 10;
 }
 
 footer p {
   color: #ccc;
+  font-size: 1rem;
+  margin: 0;
 }
 
-@media (max-width: 600px) {
-  .create-area, .note {
-    width: 95vw;
-    min-width: 0;
-    margin: 16px auto;
+@media (max-width: 700px) {
+  .app-container {
+    padding: 16px 4px 80px 4px;
   }
-  header {
-    padding: 18px 8px 16px 8px;
+  .create-area {
+    max-width: 98vw;
+    padding: 16px 8px 12px 8px;
   }
+  .notes-grid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
   header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+  .create-area {
+    margin: 18px auto 12px auto;
+  }
+  .note {
+    padding: 12px 8px 10px 8px;
+    min-height: 80px;
   }
 } 

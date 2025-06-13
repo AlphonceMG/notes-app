@@ -22,18 +22,22 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
-      <CreateArea onAdd={addNote} />
-      {notes.map((note, index) => (
-        <Note
-          key={index}
-          id={index}
-          title={note.title}
-          content={note.content}
-          onDelete={deleteNote}
-        />
-      ))}
+      <div className="create-area">
+        <CreateArea onAdd={addNote} />
+      </div>
+      <div className="notes-grid">
+        {notes.map((note, index) => (
+          <Note
+            key={index}
+            id={index}
+            title={note.title}
+            content={note.content}
+            onDelete={deleteNote}
+          />
+        ))}
+      </div>
       <Footer />
     </div>
   );
